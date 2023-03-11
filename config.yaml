@@ -1,8 +1,12 @@
 # Configuration for pipeline
 
-# input files and parameters
+# input files
 extended_spike: data/extended_spike.fa
 reference_spike: data/reference_spike.fa
 
+# URL of GISAID mutation count data on CoVsurver:
+alignment_count_url: https://mendel.bii.a-star.edu.sg/METHODS/corona/current/MUTATIONS/hCoV-19_Human_2019_WuhanWIV04/hcov19_Spike_mutations_table.html
+
 # output files
 sequential_to_reference: results/sequential_to_reference.csv
+alignment_counts: results/alignment_counts.csv
