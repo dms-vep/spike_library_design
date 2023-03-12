@@ -7,6 +7,22 @@ reference_spike: data/reference_spike.fa
 # URL of GISAID mutation count data on CoVsurver:
 alignment_count_url: https://mendel.bii.a-star.edu.sg/METHODS/corona/current/MUTATIONS/hCoV-19_Human_2019_WuhanWIV04/hcov19_Spike_mutations_table.html
 
+# URLs of UShER tree, GTF, and reference sequence
+usher_mat: http://hgdownload.soe.ucsc.edu/goldenPath/wuhCor1/UShER_SARS-CoV-2/public-latest.all.masked.pb.gz
+usher_gtf: http://hgdownload.soe.ucsc.edu/goldenPath/wuhCor1/bigZips/genes/ncbiGenes.gtf.gz
+usher_fasta: http://hgdownload.soe.ucsc.edu/goldenPath/wuhCor1/bigZips/wuhCor1.fa.gz
+
+# "recent" Nextstrain clades for analysis on UShER tree
+# Note clade names here have to exactly match how they are defined in the UShER tree;
+# if you are not sure how they are named use
+# "matUtils summary -i results/usher/mat.pb.gz -c clades.tsv"
+# and then look at the clade names in "clades.tsv"
+usher_recent_clades:
+  - 22D (Omicron)  # BA.2.75
+  - 22E (Omicron)  # BQ.1.1
+  - 22F (Omicron)  # XBB
+  - 23A (Omicron)  # XBB.1.5
+
 # output files
 sequential_to_reference: results/sequential_to_reference.csv
 alignment_counts: results/alignment_counts.csv
