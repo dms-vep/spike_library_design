@@ -8,8 +8,8 @@ rule all:
     input:
         config["sequential_to_reference"],
         config["alignment_counts"],
-        "results/usher/translated_muts.tsv",
-        "results/usher/translated_recent_muts.tsv",
+        "results/usher/mut_counts.csv",
+        "results/usher/recent_mut_counts.csv",
 
 
 rule sequential_to_reference:
@@ -86,3 +86,12 @@ rule translate_recent_mat:
             -f {input.fasta} \
             -t {output.tsv}
         """
+
+
+rule usher_mutcounts:
+    input:
+        translated_muts_tsv="results/usher/translated_{mutset}s.tsv",
+    output:
+        mut_counts_csv="results/usher/{mutset}_counts.csv",
+    script:
+        "scripts/usher_mutcounts.py"
