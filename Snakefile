@@ -6,10 +6,7 @@ configfile: "config.yaml"
 
 rule all:
     input:
-        config["sequential_to_reference"],
-        config["alignment_counts"],
-        "results/usher/mut_counts.csv",
-        "results/usher/recent_mut_counts.csv",
+        config["mutation_stats"],
 
 
 rule sequential_to_reference:
@@ -95,3 +92,17 @@ rule usher_mutcounts:
         mut_counts_csv="results/usher/{mutset}_counts.csv",
     script:
         "scripts/usher_mutcounts.py"
+
+
+rule aggregate_mut_stats:
+    input:
+       config["sequential_to_reference"],
+       config["alignment_counts"],
+       config["usher_mut_counts"],
+       config["usher_recent_mut_counts"],
+    output:
+        config["mutation_stats"],
+    log:
+        "results/notebooks/aggregate_mut_stats.ipynb",
+    notebook:
+        "notebooks/aggregate_mut_stats.py.ipynb"

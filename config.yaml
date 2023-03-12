@@ -26,3 +26,6 @@ usher_recent_clades:
 # output files
 sequential_to_reference: results/sequential_to_reference.csv
 alignment_counts: results/alignment_counts.csv
+usher_mut_counts: results/usher/mut_counts.csv
+usher_recent_mut_counts: results/usher/recent_mut_counts.csv
+mutation_stats: results/mutation_stats.csv
