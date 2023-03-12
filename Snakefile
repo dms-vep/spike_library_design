@@ -106,3 +106,16 @@ rule aggregate_mut_stats:
         "results/notebooks/aggregate_mut_stats.ipynb",
     notebook:
         "notebooks/aggregate_mut_stats.py.ipynb"
+
+
+rule mutations_to_retain:
+    input:
+        config["mutation_stats"],
+    output:
+   
+    params:
+        config["mutation_retain_thresholds"],
+    log:
+        notebook="results/notebooks/mutations_to_retain.ipynb",
+    notebook:
+        "notebooks/mutations_to_retain.py.ipynb"

@@ -23,6 +23,12 @@ usher_recent_clades:
   - 22F (Omicron)  # XBB
   - 23A (Omicron)  # XBB.1.5
 
+# Keep mutations with >= this many counts for each threshold.
+mutation_retain_thresholds:
+  GISAID_count: 20
+  UShER_count: 5
+  UShER_recent_count: 2
+
 # output files
 sequential_to_reference: results/sequential_to_reference.csv
 alignment_counts: results/alignment_counts.csv
