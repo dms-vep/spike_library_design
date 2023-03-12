@@ -51,6 +51,7 @@ mut_counts = (
     .query("Position.notnull()", engine="python")
     .query("Protein == 'Spike'")
     .rename(columns=cols_of_interest)
+    .assign(mutant=lambda x: x["mutant"].map(lambda m: "-" if m == "del" else m))
     .query("mutant in @valid_mutants")
     [cols_of_interest.values()]
     .assign(site=lambda x: x["site"].astype(int))
