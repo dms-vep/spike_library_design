@@ -29,6 +29,71 @@ mutation_retain_thresholds:
   UShER_count: 5
   UShER_recent_count: 2
 
+# Saturating substitution mutagenesis at sites with >= this many total
+# substitution counts:
+site_saturation_threshold:
+  UShER_count: 500
+  UShER_recent_count: 50
+
+# Regardless of counts, only include deletion mutations in these sites
+# specifically listed under `mutations_to_include`. Specify a list of inclusive
+# site ranges in reference numbering
+sites_to_allow_deletions:
+  - [13, 304]  # NTD as defined at https://www.ncbi.nlm.nih.gov/protein/1796318598
+
+# include these mutations regardless of counts, in reference numbering
+mutations_to_include:
+  # Ryan Hisner says second generation BA.2 variants with deletions at some of these sites,
+  # and others have a decent number of deletions in GISAID data
+  - 342-
+  - 343-
+  - 344-
+  - 345-
+  - 346-
+  - 347-
+  - 348-
+  - 349-
+  - 444-
+  - 445-
+  - 446-
+  - 447-
+  - 448-
+  - 449-
+  - 483-
+  - 484-
+  - 485-
+  - 486-
+
+# do we saturate mutagenesis of substitutions at sites that differ from reference?
+saturate_diffs_from_reference: true
+
+# saturating mutagenesis of substitutions at these sites, in reference numbering
+sites_to_saturate:
+  # top sites in escape calculator relative to XBB as of March-12-2023
+  #  https://jbloomlab.github.io/SARS2_RBD_Ab_escape_maps/escape-calc/
+  - 346
+  - 347
+  - 348
+  - 352
+  - 356
+  - 357
+  - 383
+  - 385
+  - 444
+  - 447
+  - 449
+  - 450
+  - 452
+  - 455
+  - 456
+  - 462
+  - 468
+  - 472
+  - 473
+  - 475
+  - 484
+  - 490
+
 # output files
 sequential_to_reference: results/sequential_to_reference.csv
 alignment_counts: results/alignment_counts.csv

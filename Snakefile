@@ -115,6 +115,11 @@ rule mutations_to_retain:
    
     params:
         config["mutation_retain_thresholds"],
+        config["saturation_threshold"],
+        config["sites_to_allow_deletions"],
+        config["mutations_to_include"],
+        config["sites_to_saturate"],
+        config["saturate_diffs_from_reference"],
     log:
         notebook="results/notebooks/mutations_to_retain.ipynb",
     notebook:
