@@ -4,8 +4,9 @@
 
 Input data are found in the [./data/](data) subdirectory.
 Must include:
- - [./data/extended_spike.fa](data/extended_spike.fa) gives the spike coding sequence to be mutagenized in uppercase letters, and the flanking regions in the plasmid (at least ~30 nucleotides on each site) needed to design primers that mutagenize sites near the termini.
- - [./data/reference_spike.fa](data/reference_spike.fa) gives the reference (eg, Wuhan-Hu-1) spike coding sequence, used to map sequential to reference site numbers.
+ - [./data/extended_gene.fa](data/extended_gene.fa) gives the spike coding sequence to be mutagenized in uppercase letters, and the flanking regions in the plasmid (at least ~30 nucleotides on each site) needed to design primers that mutagenize sites near the termini.
+ - [./data/reference_gene.fa](data/reference_gene.fa) gives the reference (eg, Wuhan-Hu-1) spike coding sequence, used to map sequential to reference site numbers.
+ - - [human_codon_freq.csv](human_codon_freq.csv) Human codon frequencies, taken from [here](https://www.kazusa.or.jp/codon/)
 
 ## Old
 

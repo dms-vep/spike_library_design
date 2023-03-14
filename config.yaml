@@ -1,8 +1,9 @@
 # Configuration for pipeline
 
 # input files
-extended_spike: data/extended_spike.fa
-reference_spike: data/reference_spike.fa
+extended_gene: data/extended_spike.fa
+reference_gene: data/reference_spike.fa
+human_codon_freqs: data/human_codon_freq.csv
 
 # URL of GISAID mutation count data on CoVsurver:
 alignment_count_url: https://mendel.bii.a-star.edu.sg/METHODS/corona/current/MUTATIONS/hCoV-19_Human_2019_WuhanWIV04/hcov19_Spike_mutations_table.html
@@ -97,6 +98,16 @@ sites_to_saturate:
   - 180
   - 478
 
+# primer design specifications
+primer_min_tm: 60
+primer_min_length: 25
+primer_max_length: 51
+
+# number of nucleotides in offsets used for primers for targeted mutations
+# and saturated sites
+targeted_mutations_offsets: [0]
+saturated_sites_offsets: [-8, 4]
+
 # output files
 sequential_to_reference: results/sequential_to_reference.csv
 alignment_counts: results/alignment_counts.csv
@@ -104,6 +115,8 @@ usher_mut_counts: results/usher/mut_counts.csv
 usher_recent_mut_counts: results/usher/recent_mut_counts.csv
 mutation_stats: results/mutation_stats.csv
 mutations_to_make_chart: results/mutations_to_make.html
+mutation_design_classification: results/mutation_design_classification.csv
 targeted_mutations: results/targeted_mutations.csv
 saturated_sites: results/saturated_sites.csv
-mutation_design_classification: results/mutation_design_classification.csv
+targeted_mutations_w_oligos: results/targeted_mutations_w_oligos.csv
+saturated_sites_w_oligos: results/saturated_sites_w_oligos.csv

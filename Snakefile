@@ -11,12 +11,14 @@ rule all:
         config["targeted_mutations"],
         config["saturated_sites"],
         config["mutation_design_classification"],
+        config["targeted_mutations_w_oligos"],
+        config["saturated_sites_w_oligos"],
 
 
 rule sequential_to_reference:
     input:
-        extended_spike=config["extended_spike"],
-        reference_spike=config["reference_spike"],
+        extended_gene=config["extended_gene"],
+        reference_gene=config["reference_gene"],
     output:
         config["sequential_to_reference"],
     log:
@@ -131,3 +133,24 @@ rule mutations_to_make:
         notebook="results/notebooks/mutations_to_make.ipynb",
     notebook:
         "notebooks/mutations_to_make.py.ipynb"
+
+
+rule design_primers:
+    input:
+        config["targeted_mutations"],
+        config["saturated_sites"],
+        config["extended_gene"],
+        config["human_codon_freqs"],
+    params:
+        config["targeted_mutations_offsets"],
+        config["saturated_sites_offsets"],
+        config["primer_min_tm"],
+        config["primer_min_length"],
+        config["primer_max_length"],
+    output:
+        config["targeted_mutations_w_oligos"],
+        config["saturated_sites_w_oligos"],
+    log:
+        notebook="results/notebooks/design_primers.ipynb",
+    notebook:
+        "notebooks/design_primers.py.ipynb"
