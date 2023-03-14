@@ -32,8 +32,8 @@ mutation_retain_thresholds:
 # Saturating substitution mutagenesis at sites with >= this many total
 # substitution counts:
 site_saturation_threshold:
-  UShER_count: 500
-  UShER_recent_count: 50
+  UShER_count: 2500
+  UShER_recent_count: 100
 
 # Regardless of counts, only include deletion mutations in these sites
 # specifically listed under `mutations_to_include`. Specify a list of inclusive
@@ -93,6 +93,9 @@ sites_to_saturate:
   - 475
   - 484
   - 490
+  # sites mutated in XBB.1.16 relative to XBB.1.5
+  - 180
+  - 478
 
 # output files
 sequential_to_reference: results/sequential_to_reference.csv
@@ -100,3 +103,6 @@ alignment_counts: results/alignment_counts.csv
 usher_mut_counts: results/usher/mut_counts.csv
 usher_recent_mut_counts: results/usher/recent_mut_counts.csv
 mutation_stats: results/mutation_stats.csv
+mutations_to_make_chart: results/mutations_to_make.html
+targeted_mutations: results/targeted_mutations.csv
+saturated_sites: results/saturated_sites.csv

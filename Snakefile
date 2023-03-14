@@ -7,6 +7,9 @@ configfile: "config.yaml"
 rule all:
     input:
         config["mutation_stats"],
+        config["mutations_to_make_chart"],
+        config["targeted_mutations"],
+        config["saturated_sites"],
 
 
 rule sequential_to_reference:
@@ -108,19 +111,21 @@ rule aggregate_mut_stats:
         "notebooks/aggregate_mut_stats.py.ipynb"
 
 
-rule mutations_to_retain:
+rule mutations_to_make:
     input:
         config["mutation_stats"],
     output:
-   
+        config["mutations_to_make_chart"],
+        config["targeted_mutations"],
+        config["saturated_sites"],
     params:
         config["mutation_retain_thresholds"],
-        config["saturation_threshold"],
+        config["site_saturation_threshold"],
         config["sites_to_allow_deletions"],
         config["mutations_to_include"],
         config["sites_to_saturate"],
         config["saturate_diffs_from_reference"],
     log:
-        notebook="results/notebooks/mutations_to_retain.ipynb",
+        notebook="results/notebooks/mutations_to_make.ipynb",
     notebook:
-        "notebooks/mutations_to_retain.py.ipynb"
+        "notebooks/mutations_to_make.py.ipynb"
