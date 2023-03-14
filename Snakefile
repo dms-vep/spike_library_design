@@ -10,6 +10,7 @@ rule all:
         config["mutations_to_make_chart"],
         config["targeted_mutations"],
         config["saturated_sites"],
+        config["mutation_design_classification"],
 
 
 rule sequential_to_reference:
@@ -118,6 +119,7 @@ rule mutations_to_make:
         config["mutations_to_make_chart"],
         config["targeted_mutations"],
         config["saturated_sites"],
+        config["mutation_design_classification"],
     params:
         config["mutation_retain_thresholds"],
         config["site_saturation_threshold"],
