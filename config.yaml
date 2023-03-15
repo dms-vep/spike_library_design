@@ -1,7 +1,7 @@
 # Configuration for pipeline
 
 # input files
-extended_gene: data/extended_spike.fa
+extended_gene: data/extended_spike_XBB.1.5.fa
 reference_gene: data/reference_spike.fa
 human_codon_freqs: data/human_codon_freq.csv
 
