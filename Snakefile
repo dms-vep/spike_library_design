@@ -13,6 +13,8 @@ rule all:
         config["mutation_design_classification"],
         config["targeted_mutations_w_oligos"],
         config["saturated_sites_w_oligos"],
+        config["opools"],
+        config["opool_stats"],
 
 
 rule sequential_to_reference:
@@ -147,9 +149,12 @@ rule design_primers:
         config["primer_min_tm"],
         config["primer_min_length"],
         config["primer_max_length"],
+        config["opool_prefix"]
     output:
         config["targeted_mutations_w_oligos"],
         config["saturated_sites_w_oligos"],
+        config["opools"],
+        config["opool_stats"],
     log:
         notebook="results/notebooks/design_primers.ipynb",
     notebook:
