@@ -89,3 +89,7 @@ The designed pools themselves are in the file [results/oPools.csv](results/oPool
 The number of unique sequences in each pool are in [results/oPool_stats.csv](results/oPool_stats.csv).
 A recommended way to pool the primers is just to use concentrations of each pool proportional to the number of unique primers, so that each is at equal molarity.
 This will give somewhat higher mutation rates at saturated sites since they are mutated by primers in both the targeted and saturated pools.
+
+#### RBD only library
+If you wanted to design a RBD-only library saturating all mutations, change the `extended_gene` key in [config.yaml](config.yaml) to point to a sequence that only has the RBD in uppercase, such as [data/extended_RBD_XBB.1.5.fa](data/extended_RBD_XBB.1.5.fa).
+Then change the GISAID threshold under `mutation_retain_thresholds` in [config.yaml](config.yaml) to zero to include all mutations.
